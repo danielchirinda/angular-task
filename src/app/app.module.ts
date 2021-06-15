@@ -7,8 +7,9 @@ import { ButtonComponent } from './components/button/button.component';
 import { TasksComponent } from './components/tasks/tasks.component';
 import { ItemComponent } from './components/item/item.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { HttpClientModule } from '@angular/common/http'
-
+import { HttpClientModule } from '@angular/common/http';
+import { AddTasksComponent } from './components/add-tasks/add-tasks.component'
+import {FormsModule} from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -16,12 +17,14 @@ import { HttpClientModule } from '@angular/common/http'
     HeaderComponent,
     ButtonComponent,
     TasksComponent,
-    ItemComponent
+    ItemComponent,
+    AddTasksComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
 
   ],
   providers: [],
