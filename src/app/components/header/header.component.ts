@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UiService } from '../../services/ui.service'
+import { Subscription } from 'rxjs'
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  title:String = 'angular-crash';
+  title: String = 'angular-crash';
+
+  showAddTask: boolean = false
+  subscription: Subscription = Subscription.EMPTY;
 
 
-  constructor() { }
+  constructor(private uiService: UiService) {
+    this.subscription = this.uiService.onToggle().subscribe((value) => { this.showAddTask = value })
+  }
 
   /**
    * To run when a component load
@@ -18,8 +26,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toggleAddTask(){
+  toggleAddTask() {
     console.log('On Header')
+    this.uiService.toggleAddTask()
+
   }
 
 }
