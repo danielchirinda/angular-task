@@ -1,5 +1,7 @@
 import { Component, OnInit ,Input} from '@angular/core';
 import {Task} from '../../Task'
+import {faTimes} from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-item',
@@ -14,6 +16,9 @@ export class ItemComponent implements OnInit {
     reminder:true,
     text:'Working'
   };
+
+  faTimes= faTimes
+
 
   constructor() { }
 
